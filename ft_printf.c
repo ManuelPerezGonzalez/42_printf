@@ -6,17 +6,68 @@
 /*   By: maperez- <maperez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:40:31 by maperez-          #+#    #+#             */
-/*   Updated: 2022/05/31 12:08:32 by maperez-         ###   ########.fr       */
+/*   Updated: 2022/06/15 15:29:41 by maperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printflibft.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_checker(const char *str, va_list args, int pos)
 {
-	va_list	ap;
+	int	i;
 
-	if (format == NULL)
-		return (NULL);
-	va_start(ap, format);
+	i = 0;
+	if (str[pos] == 'c')
+		i += ft_putchar(va_arg(args, int));
+	else if (str[pos] == 's')
+		i += ft_putstr(va_arg(args, char *));
+	else if (str[pos] == 'p')
+	{
+		i += ft_putstr("0x");
+		i += ft_puthexmin(va_arg(args, unsigned long long));
+	}
+	else if (str[pos] == 'd' || str[pos] == 'i')
+		i += ft_putnbr(va_arg(args, int));
+	else if (str[pos] == 'u')
+		i += ft_putten(va_arg(args, unsigned int));
+	else if (str[pos] == 'x')
+		i += ft_puthexmin(va_arg(args, unsigned int));
+	else if (str[pos] == 'X')
+		i += ft_puthexmayus(va_arg(args, unsigned int));
+	else if (str[pos] == '%')
+		i += ft_putchar('%');
+	return (i);
 }
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	args;
+	int		pos;
+	int		char_count;
+
+	if (str == NULL)
+		return (NULL);
+	va_start(args, str);
+	pos = 0;
+	char_count = 0;
+	while (str[pos])
+	{
+		if (str[pos] == '%')
+			char_count += ft_checker(str, args, ++pos);
+		else
+		{
+			ft_putchar(str[pos]);
+			char_count++;
+		}
+		pos++;
+	}
+	va_end(args);
+	return (char_count);
+}
+
+/* int	main(void)
+{
+	printf("%d\n", ft_printf("%X\n", -42));
+	printf("%d\n", printf("%X\n", -42));
+	return (0);
+} */
