@@ -6,7 +6,7 @@
 /*   By: maperez- <maperez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:40:31 by maperez-          #+#    #+#             */
-/*   Updated: 2022/06/15 15:29:41 by maperez-         ###   ########.fr       */
+/*   Updated: 2022/06/20 14:07:31 by maperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_checker(const char *str, va_list args, int pos)
 	else if (str[pos] == 'x')
 		i += ft_puthexmin(va_arg(args, unsigned int));
 	else if (str[pos] == 'X')
-		i += ft_puthexmayus(va_arg(args, unsigned int));
+		i += ft_puthexmay(va_arg(args, unsigned int));
 	else if (str[pos] == '%')
 		i += ft_putchar('%');
 	return (i);
@@ -46,7 +46,7 @@ int	ft_printf(const char *str, ...)
 	int		char_count;
 
 	if (str == NULL)
-		return (NULL);
+		return (0);
 	va_start(args, str);
 	pos = 0;
 	char_count = 0;
@@ -67,7 +67,7 @@ int	ft_printf(const char *str, ...)
 
 /* int	main(void)
 {
-	printf("%d\n", ft_printf("%X\n", -42));
-	printf("%d\n", printf("%X\n", -42));
+	printf("%d\n", ft_printf("%u\n", -42));
+	printf("%d\n", printf("%u\n", -42));
 	return (0);
 } */

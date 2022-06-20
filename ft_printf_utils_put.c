@@ -6,7 +6,7 @@
 /*   By: maperez- <maperez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 09:51:58 by maperez-          #+#    #+#             */
-/*   Updated: 2022/06/20 12:30:19 by maperez-         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:38:48 by maperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_putstr(char *s)
 		write(1, "(null)", ft_strlen("(null)"));
 		return (ft_strlen("(null)"));
 	}
-	wirte(1, s, ft_strlen(s));
+	write(1, s, ft_strlen(s));
 	return (ft_strlen(s));
 }
 

@@ -6,21 +6,24 @@
 /*   By: maperez- <maperez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 10:23:06 by maperez-          #+#    #+#             */
-/*   Updated: 2022/06/20 12:30:17 by maperez-         ###   ########.fr       */
+/*   Updated: 2022/06/20 14:09:01 by maperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putten(int nb)
+int	ft_putten(long nb)
 {
 	static int	i;
 
 	i = 0;
-	if (nb >= 10)
+	if (nb >= 0 && nb <= 4294967295)
 	{
-		ft_putten(nb / 10);
-		nb %= 10;
+		if (nb > 9)
+		{
+			ft_putten(nb / 10);
+			nb %= 10;
+		}
 	}
 	ft_putchar(nb + '0');
 	i++;

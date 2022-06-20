@@ -6,7 +6,7 @@
 /*   By: maperez- <maperez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:41:52 by maperez-          #+#    #+#             */
-/*   Updated: 2022/06/20 12:30:56 by maperez-         ###   ########.fr       */
+/*   Updated: 2022/06/20 14:09:22 by maperez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_putchar(int c);
 size_t	ft_strlen(const char *s);
 int		ft_putstr(char *s);
 int		ft_putnbr(int nb);
-int		ft_putten(int nb);
+int		ft_putten(long nb);
 int		ft_puthexmin(unsigned long long nb);
 int		ft_puthexmay(unsigned long long nb);
 
