@@ -13,7 +13,7 @@ all: ${NAME}
 $(NAME): ${OBJS}
 		make -C libft
 		mv libft/libft.a $(NAME)
-		ar -rcs $(NAME) ${OBJS}
+		ar rcs $(NAME) ${OBJS}
 
 clean:
 		${RM} ${OBJS}
@@ -28,4 +28,4 @@ m: re
 		gcc *.o -lftprintf -L.
 		./a.out
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

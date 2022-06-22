@@ -22,7 +22,7 @@ CFLAGS			= -Wall -Wextra -Werror -I.
 all:			${NAME}
 
 $(NAME):			$(OBJS)
-				ar -r $(NAME) $(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 bonus:		$(OBJS) $(BONUS_OBJS)
 			ar crs $(NAME) $(OBJS) $(BONUS_OBJS)
